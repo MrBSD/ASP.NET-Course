@@ -14,8 +14,9 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             var movie = new Movie( ) { Name = "Shrek" };
-            //return View(movie);
-            return RedirectToAction("Index", "Home", new { page = 1, sortBy= "name"});
+
+            return View(movie);
+            //return RedirectToAction("Index", "Home", new { page = 1, sortBy= "name"});
         }
 
         public ActionResult Edit(int id)
@@ -36,6 +37,7 @@ namespace Vidly.Controllers
             return Content(string.Format($"pageIndex={pageIndex}&sortBy={sortBy}"));
         }
 
+        [Route("movies/released/{year}/{month:regex(\\d{4}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content($"{year}//{month}");
