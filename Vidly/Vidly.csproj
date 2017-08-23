@@ -169,6 +169,26 @@
     <Compile Include="Migrations\201708231310475_InitialModel.Designer.cs">
       <DependentUpon>201708231310475_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708231316444_AddIsSubscribedToNewsletters.cs" />
+    <Compile Include="Migrations\201708231316444_AddIsSubscribedToNewsletters.Designer.cs">
+      <DependentUpon>201708231316444_AddIsSubscribedToNewsletters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708231320051_AddMembershipType.cs" />
+    <Compile Include="Migrations\201708231320051_AddMembershipType.Designer.cs">
+      <DependentUpon>201708231320051_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708231321471_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\201708231321471_PopulateMembershipType.Designer.cs">
+      <DependentUpon>201708231321471_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708231328009_RenameSignUpFeeInMembershipTypes.cs" />
+    <Compile Include="Migrations\201708231328009_RenameSignUpFeeInMembershipTypes.Designer.cs">
+      <DependentUpon>201708231328009_RenameSignUpFeeInMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708231338478_RequiredNameInCustomers.cs" />
+    <Compile Include="Migrations\201708231338478_RequiredNameInCustomers.Designer.cs">
+      <DependentUpon>201708231338478_RequiredNameInCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -244,6 +264,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708231310475_InitialModel.resx">
       <DependentUpon>201708231310475_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708231316444_AddIsSubscribedToNewsletters.resx">
+      <DependentUpon>201708231316444_AddIsSubscribedToNewsletters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708231320051_AddMembershipType.resx">
+      <DependentUpon>201708231320051_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708231321471_PopulateMembershipType.resx">
+      <DependentUpon>201708231321471_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708231328009_RenameSignUpFeeInMembershipTypes.resx">
+      <DependentUpon>201708231328009_RenameSignUpFeeInMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708231338478_RequiredNameInCustomers.resx">
+      <DependentUpon>201708231338478_RequiredNameInCustomers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
