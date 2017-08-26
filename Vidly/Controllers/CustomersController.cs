@@ -15,13 +15,7 @@ namespace Vidly.Controllers
             _context=new ApplicationDbContext();
         }
 
-        [HttpPost]
-        public ActionResult Create(Customer customer)
-        {
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Customers");
-        }
+   
 
         public ActionResult Details(int id)
         {
@@ -35,6 +29,7 @@ namespace Vidly.Controllers
             }
             return View(customer);
         }
+
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
@@ -60,6 +55,7 @@ namespace Vidly.Controllers
                 .ToList();
             return View(customers);
         }
+
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -71,7 +67,25 @@ namespace Vidly.Controllers
             return View("CustomerForm",viewModel);
         }
 
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if (customer.Id==0)
+            {
+              _context.Customers.Add(customer);
+            }
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                customerInDb.Name = customer.Name;
+                customerInDb.BirthDate = customer.BirthDate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedForNewsleters = customer.IsSubscribedForNewsleters;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
 
-        
+
     }
 }
