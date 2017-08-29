@@ -10,7 +10,7 @@
 </p>
 
 
-<table class="table table-bordered table-hover">
+<table id="movies" class="table table-bordered table-hover">
     <thead>
     <tr>
         <th>Movie</th>
@@ -30,3 +30,11 @@
 
 </table>
 
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#movies").DataTable();
+        });
+    </script>
+}
