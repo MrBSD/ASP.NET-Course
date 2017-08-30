@@ -22,16 +22,18 @@ namespace Vidly.Controllers.Api
         [System.Web.Http.HttpPost]
         public IHttpActionResult CreateNewRantal(NewRentalDto newRentalDto)
         {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == newRentalDto.CustomerId);
-
-            if (customer == null)
-                return BadRequest("Invalid customer ID.");
+           
+            var customer = _context.Customers
+                .Single(c => c.Id == newRentalDto.CustomerId);
 
             var movies = _context.Movies.Where(
-                m => newRentalDto.MovieIds.Contains(m.Id));
+                m => newRentalDto.MovieIds.Contains(m.Id)).ToList();
 
             foreach (var movie in movies)
             {
+                if (movie.Available == 0)
+                    return BadRequest("Movie is not available");
+                movie.Available--;
                 var rental = new Rental
                 {
                     Customer = customer,
@@ -39,6 +41,7 @@ namespace Vidly.Controllers.Api
                     DateRented = DateTime.Now
                 };
                 _context.Rentals.Add(rental);
+                
             }
             _context.SaveChanges();
             return Ok();
